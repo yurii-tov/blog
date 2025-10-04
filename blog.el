@@ -36,5 +36,11 @@
       (write-file file))))
 
 
+(defun blog-publish ()
+  (interactive)
+  (let ((default-directory blog-directory))
+    (shell-command "git add index.html && git push")))
+
+
 (with-eval-after-load 'org
   (keymap-set org-mode-map "C-c C-b" 'blog-add))

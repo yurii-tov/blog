@@ -45,7 +45,7 @@
 (defun blog-publish ()
   (interactive)
   (let ((default-directory blog-directory))
-    (shell-command "git add index.html && git commit -m 'post added' && git push")))
+    (shell-command "git add * && git commit -m 'post added' && git push")))
 
 
 (with-eval-after-load 'org

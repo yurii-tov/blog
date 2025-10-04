@@ -1,7 +1,7 @@
 body {
   background-color: #3f3f3f;
   font-family: "Arial", sans-serif;
-  font-size: 1.3em;
+  font-size: 1.2em;
 }
 
 a:link {
@@ -26,6 +26,8 @@ h4 {
 }
 
 .post {
+  max-width: 39em;
+  margin: 0 auto;
   padding: 1em;
   background-position: top left;
   background-color: #3f3f3f;

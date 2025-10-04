@@ -3,6 +3,10 @@
   (let* ((post (buffer-substring-no-properties (region-beginning) (region-end)))
          (post (with-temp-buffer
                  (insert post)
+                 (beginning-of-buffer)
+                 (end-of-line)
+                 (newline)
+                 (org-timestamp '(16) 'inactive)
                  (mark-whole-buffer)
                  (org-export-region-to-html)
                  (beginning-of-buffer)

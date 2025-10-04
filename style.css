@@ -4,6 +4,13 @@ body {
   font-size: 1.2em;
 }
 
+#header {
+  color: #dca3a3;
+  padding: 1em;
+  max-width: 65em;
+  margin: 0 auto;
+}
+
 a:link {
   color: #f0dfaf;
 }
@@ -29,8 +36,6 @@ h4 {
   max-width: 65em;
   margin: 0 auto;
   padding: 1em;
-  background-position: top left;
-  background-color: #3f3f3f;
   color: #dcdccc;
 }
 

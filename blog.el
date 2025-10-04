@@ -37,7 +37,7 @@
       (insert-file-contents file)
       (beginning-of-buffer)
       (search-forward "<!-- posts -->")
-      (open-line 1)
+      (newline)
       (insert post)
       (write-file file))))
 

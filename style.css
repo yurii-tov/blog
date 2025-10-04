@@ -1,8 +1,9 @@
 body {
   background-color: #3f3f3f;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Arial", sans-serif;
   font-size: 1.3em;
 }
+
 a:link {
   color: #f0dfaf;
 }
@@ -37,4 +38,5 @@ pre {
   color: #dcdccc;
   overflow: auto;
   padding: 1em;
+  white-space: pre-wrap;
 }

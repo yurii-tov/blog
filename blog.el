@@ -1,3 +1,6 @@
+(setq blog-directory "~/blog")
+
+
 (defun blog-export-post ()
   (org-mark-element)
   (let* ((post (buffer-substring-no-properties (region-beginning) (region-end)))
@@ -7,6 +10,7 @@
                  (end-of-line)
                  (newline)
                  (org-timestamp '(16) 'inactive)
+                 (open-line 1)
                  (mark-whole-buffer)
                  (org-export-region-to-html)
                  (beginning-of-buffer)
@@ -20,10 +24,13 @@
 
 (defun blog-add ()
   (interactive)
-  (let ((post (blog-export-post)))
-    (with-current-buffer "index.html"
+  (let ((default-directory blog-directory)
+        (post (blog-export-post))
+        (file "index.html"))
+    (with-temp-buffer
+      (insert-file-contents file)
       (beginning-of-buffer)
       (search-forward "<!-- posts -->")
       (open-line 1)
       (insert post)
-      (save-buffer))))
+      (write-file file))))

@@ -34,3 +34,7 @@
       (open-line 1)
       (insert post)
       (write-file file))))
+
+
+(with-eval-after-load 'org
+  (keymap-set org-mode-map "C-c C-b" 'blog-add))

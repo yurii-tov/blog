@@ -1,7 +1,5 @@
 body {
   background-color: #3f3f3f;
-  /* @embed */
-  background-image: url(images/page-base.png);
 }
 a:link {
   color: #f0dfaf;

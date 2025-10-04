@@ -13,6 +13,9 @@
                  (open-line 1)
                  (mark-whole-buffer)
                  (org-export-region-to-html)
+                 (replace-regexp-in-region
+                  "style=\"[^\"]*\"" ""
+                  (point-min))
                  (beginning-of-buffer)
                  (search-forward "outline-2")
                  (insert " post")

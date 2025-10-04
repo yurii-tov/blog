@@ -13,10 +13,10 @@ a:visited {
 h2 {
   color: #80d4aa;
 }
-h3,
-h4,
-h5,
-h6 {
+h3 {
+  color: #c0bed1;
+}
+h4 {
   color: #ffcfaf;
 }
 

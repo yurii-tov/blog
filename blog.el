@@ -16,6 +16,9 @@
                  (replace-regexp-in-region
                   "style=\"[^\"]*\"" ""
                   (point-min))
+                 (replace-string-in-region
+                  "<a href" "<a target=\"blank\" href"
+                  (point-min))
                  (beginning-of-buffer)
                  (search-forward "outline-2")
                  (insert " post")

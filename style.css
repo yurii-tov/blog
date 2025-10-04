@@ -1,5 +1,7 @@
 body {
   background-color: #3f3f3f;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.3em;
 }
 a:link {
   color: #f0dfaf;
@@ -7,11 +9,31 @@ a:link {
 a:visited {
   color: #e0cf9f;
 }
-h1,
-h2,
+h2 {
+  color: #80d4aa;
+}
 h3,
 h4,
 h5,
 h6 {
   color: #dcdccc;
+}
+
+.timestamp {
+  font-size: 1em;
+}
+
+.post {
+  padding: 1em;
+  background-position: top left;
+  background-color: #3f3f3f;
+  color: #dcdccc;
+}
+
+pre {
+  background: #3f3f3f;
+  border: 1pt dashed #dcdccc;
+  color: #dcdccc;
+  overflow: auto;
+  padding: 1em;
 }

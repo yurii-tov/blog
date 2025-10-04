@@ -1,3 +1,19 @@
 body {
-  background-color: green;
+  background-color: #3f3f3f;
+  /* @embed */
+  background-image: url(images/page-base.png);
+}
+a:link {
+  color: #f0dfaf;
+}
+a:visited {
+  color: #e0cf9f;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #dcdccc;
 }

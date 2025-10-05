@@ -2,6 +2,7 @@
 
 
 (defun blog-export-post ()
+  (require 'ox-html)
   (org-mark-element)
   (let* ((post (buffer-substring-no-properties (region-beginning) (region-end)))
          (post (with-temp-buffer

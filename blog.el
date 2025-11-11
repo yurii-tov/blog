@@ -4,13 +4,16 @@
 (defun blog-export-post ()
   (require 'ox-html)
   (org-mark-element)
-  (let* ((post (buffer-substring-no-properties (region-beginning) (region-end)))
+  (let* ((title (org-get-heading t))
+         (post (buffer-substring-no-properties (region-beginning) (region-end)))
+         (id (format-time-string "%s"))
+         (timestamp (format-time-string "%F %T"))
          (post (with-temp-buffer
                  (insert post)
                  (beginning-of-buffer)
                  (end-of-line)
                  (newline)
-                 (org-timestamp '(16) 'inactive)
+                 (insert (format "[%s]" timestamp))
                  (open-line 1)
                  (mark-whole-buffer)
                  (org-export-region-to-html)
@@ -26,21 +29,40 @@
                  (buffer-substring-no-properties
                   (point-min) (point-max)))))
     (deactivate-mark)
-    post))
+    `((id . ,id)
+      (title . ,title)
+      (timestamp . ,timestamp)
+      (post . ,post))))
 
 
 (defun blog-add ()
   (interactive)
-  (let ((default-directory blog-directory)
-        (post (blog-export-post))
-        (file "index.html"))
+  (let* ((post (blog-export-post))
+         (default-directory blog-directory)
+         (index "index.html")
+         (file (format "posts/%s/post.html" (cdr (assoc 'id post))))
+         (link (format "<div class=\"post-link\">
+        <span class=\"timestamp\">[%s]</span
+        ><a href=\"posts/%s/post.html\">%s</a>
+      </div>"
+                       (cdr (assoc 'timestamp post))
+                       (cdr (assoc 'id post))
+                       (cdr (assoc 'title post)))))
+    (make-directory (file-name-parent-directory file) t)
     (with-temp-buffer
-      (insert-file-contents file)
+      (insert-file-contents "post.html")
+      (beginning-of-buffer)
+      (search-forward "<!-- post -->")
+      (newline)
+      (insert (cdr (assoc 'post post)))
+      (write-file file))
+    (with-temp-buffer
+      (insert-file-contents index)
       (beginning-of-buffer)
       (search-forward "<!-- posts -->")
       (newline)
-      (insert post)
-      (write-file file))))
+      (insert link)
+      (write-file index))))
 
 
 (defun blog-publish ()

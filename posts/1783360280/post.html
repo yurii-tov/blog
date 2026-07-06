@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../../style.css" type="text/css" />
+  </head>
+  <body>
+    <div class="post">
+      <!-- post -->
+<div id="outline-container-orgd305539" class="outline-2 post">
+<h2 id="orgd305539">Ligatures in Emacs</h2>
+<div class="outline-text-2" id="text-orgd305539">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2026-07-06 Пн 20:51]</span></span><br />
+</p>
+
+<p>
+I think i've finally figured it out 😌. How to config the ligatures properly!<br />
+The code (see below) uses <a target="blank" href="https://github.com/mickeynp/ligature.el">ligature.el</a> package and enable (most of, if not all) the ligatures in Cascadia Code, <b>including arbitrary long "arrows" of various kinds</b><br />
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(ligature-set-ligatures
+ t '(<span >"(*"</span> <span >"*)"</span> <span >"^="</span> <span >"www"</span> <span >"?:"</span> <span >"?="</span> <span >"?."</span> <span >"{|"</span> <span >"$&gt;"</span> <span >"[|"</span> <span >"]#"</span>
+     (<span >"&lt;"</span> <span >"[&lt;!]?[-=]+[&lt;&gt;]*</span><span >\\</span><span >|</span><span >[~*|$+/:]*[&lt;&gt;]*"</span>)
+     (<span >"="</span> <span >"=*&gt;&gt;?</span><span >\\</span><span >|</span><span >[:&lt;/=!][=&lt;]*"</span>) (<span >"-"</span> <span >"-*&lt;+</span><span >\\</span><span >|</span><span >[~|]</span><span >\\</span><span >|</span><span >-*&gt;?&gt;?"</span>)
+     (<span >"#"</span> <span >"#+</span><span >\\</span><span >|</span><span >[[{:=?(_!](?"</span>) (<span >":"</span> <span >"//+</span><span >\\</span><span >|</span><span >:*[=&lt;&gt;]?"</span>)
+     (<span >"/"</span> <span >"/+</span><span >\\</span><span >|</span><span >=*[&gt;*]?"</span>) (<span >"."</span> <span >"\\.*[&lt;?=-]?"</span>) (<span >"|"</span> <span >"|*[]=&gt;}-]?"</span>)
+     (<span >"*"</span> <span >"\\**[/&gt;]?"</span>) (<span >"~"</span> <span >"[~@=&gt;-]&gt;?"</span>) (<span >"&gt;"</span> <span >"[&gt;=:-]+&lt;*"</span>)
+     (<span >"!"</span> <span >"=+</span><span >\\</span><span >|</span><span >!+"</span>) (<span >"+"</span> <span >"+*&gt;?"</span>) (<span >"_"</span> <span >"|?_+"</span>) (<span >"%"</span> <span >"%+"</span>)
+     (<span >"&amp;"</span> <span >"&amp;+"</span>) (<span >";"</span> <span >";+"</span>)))
+
+(global-ligature-mode t)
+</pre>
+</div>
+</div>
+<div id="outline-container-orgbd5af45" class="outline-3">
+<h3 id="orgbd5af45">How it looks like</h3>
+<div class="outline-text-3" id="text-orgbd5af45">
+<p>
+<img src="ligatures.png"></p>
+</div>
+</div>
+</div>
+
+    </div>
+  </body>
+</html>

@@ -6,7 +6,7 @@
   (org-mark-element)
   (let* ((title (org-get-heading t))
          (post (buffer-substring-no-properties (region-beginning) (region-end)))
-         (id (format-time-string "%s"))
+         (id (string-replace ":" "" (format-time-string "%F_%T")))
          (timestamp (format-time-string "%F %T"))
          (post (with-temp-buffer
                  (insert post)
